@@ -4,7 +4,7 @@ port = 7125
 max_upload_size = 1024
 
 [file_manager]
-enable_object_processing = False
+enable_object_processing = True
 
 [authorization]
 cors_domains = 
@@ -12,12 +12,19 @@ cors_domains =
 	http://my.mainsail.xyz
 	http://*.local
 	http://*.lan
+	*.local
+	*.lan
+	*://app.fluidd.xyz
+	*:7136
+	*.local:7136
 trusted_clients = 
 	10.0.0.0/8
 	127.0.0.0/8
 	169.254.0.0/16
 	172.16.0.0/12
 	192.168.0.0/16
+	FE80::/10
+	::1/128
 	FE80::/10
 	::1/128
 
@@ -58,4 +65,11 @@ path = ~/klipper_z_calibration
 origin = https://github.com/protoloft/klipper_z_calibration.git
 install_script = install.sh
 managed_services = klipper
+
+[update_manager pgcode]
+type = git_repo
+primary_branch = main
+origin = https://github.com/Kragrathea/pgcode.git
+path = ~/pgcode
+is_system_service = False
 
